@@ -16,17 +16,19 @@ class Complex{
         return res;
     } 
 
-    Complex operator * (Complex c){
-        Complex res;
-        res.real = (this->real*c.real) - (this->imag*c.imag);
-        res.imag = (this->real*c.imag) + (c.real*this->imag);
-        return res;
-    }
+    friend Complex operator * (Complex d,Complex c);
 
     void display(){
         cout<<real<<" + "<<imag<<"j"<<endl;
     }
 };
+
+Complex operator * (Complex d, Complex c){
+    Complex res;
+        res.real = (d.real*c.real) - (d.imag*c.imag);
+        res.imag = (d.real*c.imag) + (c.real*d.imag);
+        return res;
+}
 
 int main(){
     Complex a(5,8);
